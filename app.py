@@ -11,7 +11,6 @@ def insert():
 
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
-    print(request.json)
     message = request.json.get("result").get("parameters").get("message")
     output = {
         "speech": message
