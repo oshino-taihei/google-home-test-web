@@ -13,8 +13,10 @@ def insert():
 
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
+    input = json.load(request.data)
+    message = input["result"]["parameters"]["message"]
     output = {
-        "speech": "hello"
+        "speech": message
     }
     return jsonify(output)
 
