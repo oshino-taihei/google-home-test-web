@@ -11,7 +11,7 @@ def index():
 def insert():
     data = request.args.get('data', type = str)
 
-@app.route('/echo')
+@app.route('/echo', method=['POST', 'GET'])
 def echo():
     output = {
         "speech": "hello"
