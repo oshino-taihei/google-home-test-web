@@ -1,5 +1,3 @@
-import sys
-import json
 from flask import Flask, request, render_template, jsonify
 app = Flask(__name__)
 
@@ -13,7 +11,8 @@ def insert():
 
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
-    message = request.json["result"]["parameters"]["message"]
+    print(request.json)
+    message = request.json.get("result").get("parameters").get("message")
     output = {
         "speech": message
     }
